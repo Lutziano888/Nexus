@@ -1,0 +1,189 @@
+/* ---------------------------------------------------------------
+   Modern Dark‑Mode Theme for NexusRust Debug Page
+   ---------------------------------------------------------------
+   • Uses Inter from Google Fonts (fallback: system UI)
+   • Dark background with subtle glass‑morphism containers
+   • Smooth hover and focus transitions
+   • CSS variables for easy theming
+   • Minimal, readable selectors – easier to maintain
+   --------------------------------------------------------------- */
+
+/* ---------- Font Import ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Root Variables ---------- */
+:root {
+  /* Base palette – adjust to taste */
+  --color-bg: hsl(220, 15%, 8%);            /* deep dark */
+  --color-surface: hsla(220, 15%, 12%, 0.75); /* glass surface */
+  --color-primary: hsl(210, 80%, 55%);        /* vibrant blue */
+  --color-primary‑light: hsl(210, 80%, 65%);
+  --color-text: hsl(0, 0%, 90%);
+  --color-muted: hsl(0, 0%, 55%);
+  --radius: 0.8rem;
+  --shadow‑elev: 0 4px 12px rgba(0,0,0,0.4);
+  --transition: 0.2s ease‑in‑out;
+}
+
+/* ---------- Global Resets ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  overflow-y: overlay; /* smoother scrollbars on supported browsers */
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary‑light);
+  text-decoration: underline;
+}
+
+/* ---------- Container (glass) ---------- */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow‑elev);
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid hsla(0,0%,100%,0.08);
+}
+
+/* ---------- Header ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ---------- Buttons ---------- */
+button,
+.input-button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.2rem;
+  transition: var(--transition);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+button:hover,
+.input-button:hover {
+  background: var(--color-primary‑light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+button:active,
+.input-button:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Form Elements ---------- */
+input[type="text"],
+input[type="search"],
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.05);
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ---------- Table ---------- */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+thead {
+  background: var(--color-surface);
+}
+
+th,
+td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  color: var(--color-muted);
+}
+
+tbody tr {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ---------- Utility Classes ---------- */
+.text‑muted { color: var(--color-muted); }
+.text‑primary { color: var(--color-primary); }
+.mt‑1 { margin-top: 0.5rem; }
+.mb‑1 { margin-bottom: 0.5rem; }
+.p‑2 { padding: 1rem; }
+
+/* ---------- Scrollbar (WebKit) ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  header h1 { font-size: 1.5rem; }
+}
+
+/* ---------------------------------------------------------------
+   End of Modern Theme
+   --------------------------------------------------------------- */

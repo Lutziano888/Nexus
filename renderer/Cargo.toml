@@ -1,0 +1,51 @@
+[package]
+name = "renderer"
+version = "0.2.0"
+edition = "2021"
+
+[dependencies]
+# Fenster & Event-Loop
+winit = "0.30"
+boa_engine = "0.19"  # gleiche Version wie dein Boa-Lernprojekt
+# Software-Pixel-Buffer
+softbuffer = "0.4"
+# Eigene Module
+network_fetch = { path = "../network_fetch" }
+html_parser   = { path = "../html_parser" }
+layout_engine = { path = "../layout_engine" }
+# Text-Rendering mit cosmic-text (HarfBuzz-Shaping, Bidirectional, Font-Fallback)
+cosmic-text = "0.12"
+# Skia 2D-Renderer
+skia-safe = { version = "0.70", features = ["textlayout", "binary-cache"] }
+# Bild-Rendering
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "gif", "webp"] }
+# Async-Runtime
+tokio = { version = "1", features = ["rt", "rt-multi-thread"] }
+futures = "0.3"
+
+# ──────────────────────────────────────────────────────────────────
+# Modern Website Support (YouTube, Wikipedia, Google)
+# ──────────────────────────────────────────────────────────────────
+
+# SVG Rendering - für moderne Websites mit SVG-Icons/Graphics
+usvg = "0.42"
+resvg = "0.42"
+
+# CSS Selectors - präzisere Element-Auswahl (querySelector, CSS-Matching)
+selectors = "0.24"
+
+# Web Storage - Cookies und LocalStorage Persistierung
+rusqlite = { version = "0.37", features = ["bundled"] }
+
+# Base64 - für Data URIs (viele Websites embedden Bilder als Base64)
+base64 = "0.22"
+
+# HTTP Cookie Handling - für Cookie-Management (essentiell für Login, Tracking)
+cookie = "0.18"
+
+# JSON Processing - für API Responses und dynamische Inhalte
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+
+# Timing für Animationen und Transitions
+instant = "0.1"

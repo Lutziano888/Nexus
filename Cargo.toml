@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "network_fetch",
+    "html_parser",
+    "layout_engine",
+    "js_bridge",
+    "renderer",
+    "nexus",          # ← diese Zeile hinzufügen
+]
+resolver = "2"
